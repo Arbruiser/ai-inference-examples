@@ -26,9 +26,6 @@ if [[ -z "$MODEL_NAME" ]]; then
     exit 1
 fi
 
-# note: vLLM will error if HIP_VISIBLE_DEVICES is not set but ROCR_VISIBLE_DEVICES is
-export HIP_VISIBLE_DEVICES=$ROCR_VISIBLE_DEVICES
-
 # if more than one node is requested, we configure vllm multi-node command line arguments
 MULTINODE_ARGS=""
 if [[ "$SLURM_NNODES" -gt 1 ]]; then
